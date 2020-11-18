@@ -80,18 +80,63 @@ public class IntList {
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
 
-    public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+    public static IntList dcatenate(IntList a, IntList b) {
+       if(a == null && b == null){
+           return null;
+       }else if(a == null){
+           return b;
+       }else if(b == null){
+           return a;
+       }
+
+       IntList intList = a;
+       while (intList.rest!= null){
+           intList = intList.rest;
+       }
+       intList.rest = b;
+       return a;
+
     }
 
     /**
      * Returns a list consisting of the elements of A followed by the
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
-    public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+    public static IntList catenate(IntList a, IntList b) {
+        if(a == null && b == null){
+            return null;
+        }else if(a == null){
+            return b;
+        }else if(b == null){
+            return a;
+        }
+
+        IntList intList = new IntList(a.first,null);
+        IntList start = intList;
+        while (a.rest!= null){
+            a = a.rest;
+
+            IntList temp = new IntList(a.first,null);
+            intList.rest = temp;
+            intList = temp;
+
+        }
+
+//        intList.rest = intList;
+        intList.rest = new IntList(b.first,null);
+
+        intList = intList.rest;
+
+        while (b.rest!= null){
+            b = b.rest;
+
+            IntList temp = new IntList(b.first,null);
+            intList.rest = temp;
+            intList = temp;
+
+
+        }
+        return start;
     }
 
 
