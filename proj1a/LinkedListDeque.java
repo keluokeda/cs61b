@@ -11,9 +11,9 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
     }
 
-    public LinkedListDeque(LinkedListDeque<T> other){
+    public LinkedListDeque(LinkedListDeque<T> other) {
         this();
-        for(int i = 0;i < other.size;i++){
+        for (int i = 0; i < other.size; i++) {
             T item = other.get(i);
             addLast(item);
         }
@@ -52,7 +52,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeFirst() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return null;
         }
         size--;
@@ -65,7 +65,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return null;
         }
         size--;
@@ -82,10 +82,11 @@ public class LinkedListDeque<T> {
             return null;
         }
         Node<T> node = sentinel;
+        int i = 0;
 
-        while (index < size) {
+        while (i <= index) {
             node = node.next;
-            index++;
+            i++;
         }
         return node.item;
 
@@ -108,12 +109,28 @@ public class LinkedListDeque<T> {
     }
 
     public void printDeque() {
-
+        Node<T> currentNode = sentinel;
+        while (currentNode.next != sentinel) {
+            System.out.print(currentNode.next.item + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.println();
     }
 
     private static class Node<E> {
         Node<E> previous;
         E item;
         Node<E> next;
+    }
+
+    public static void main(String[] args) {
+        LinkedListDeque<String> linkedListDeque = new LinkedListDeque<>();
+        linkedListDeque.addLast("0");
+        linkedListDeque.addLast("1");
+        linkedListDeque.addLast("2");
+        linkedListDeque.addLast("3");
+        linkedListDeque.printDeque();
+
+        System.out.println(linkedListDeque.get(2));
     }
 }
