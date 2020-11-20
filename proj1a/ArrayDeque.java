@@ -1,9 +1,8 @@
 
 public class ArrayDeque<T> {
-    private static final int minCapacity = 8;
+    private static final int MIN_CAPACITY = 8;
 
-    private static final int capacity = 16; // The minimum capacity for contraction resizing
-    private static final int factor = 4; // Contracting factor
+    private static final int FACTOR = 4; // Contracting factor
 
     private int size = 0;
 
@@ -11,7 +10,7 @@ public class ArrayDeque<T> {
     private T[] array;
 
     public ArrayDeque() {
-        array = (T[]) new Object[minCapacity];
+        array = (T[]) new Object[MIN_CAPACITY];
     }
 
     public int size() {
@@ -29,7 +28,9 @@ public class ArrayDeque<T> {
         if (isArrayFull()) {
             resizeArrayWhenAdd(array.length + 1);
         }
-        if (size - 1 >= 0) System.arraycopy(array, 0, array, 1, size);
+        if (size - 1 >= 0) {
+            System.arraycopy(array, 0, array, 1, size);
+        }
         array[0] = item;
         size++;
     }
@@ -91,7 +92,7 @@ public class ArrayDeque<T> {
     private void resizeArrayWhenAdd(int newArraySize) {
         if (newArraySize >= array.length) {
             T[] currentArray = array;
-            T[] newArray = (T[]) new Object[array.length * factor];
+            T[] newArray = (T[]) new Object[array.length * FACTOR];
             System.arraycopy(currentArray, 0, newArray, 0, size);
             array = newArray;
             resizeArrayWhenAdd(newArraySize);
@@ -99,8 +100,8 @@ public class ArrayDeque<T> {
     }
 
     private void resizeArrayWhenRemove() {
-        int newArraySize = array.length / factor;
-        if (newArraySize >= minCapacity && newArraySize >= size) {
+        int newArraySize = array.length / FACTOR;
+        if (newArraySize >= MIN_CAPACITY && newArraySize >= size) {
             T[] currentArray = array;
             T[] newArray = (T[]) new Object[newArraySize];
             System.arraycopy(currentArray, 0, newArray, 0, size);
