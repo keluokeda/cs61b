@@ -11,13 +11,13 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
     }
 
-    public LinkedListDeque(LinkedListDeque<T> other) {
-        this();
-        for (int i = 0; i < other.size; i++) {
-            T item = other.get(i);
-            addLast(item);
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque<T> other) {
+//        this();
+//        for (int i = 0; i < other.size; i++) {
+//            T item = other.get(i);
+//            addLast(item);
+//        }
+//    }
 
     private int size = 0;
 
@@ -123,14 +123,14 @@ public class LinkedListDeque<T> {
         Node<E> next;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<String> linkedListDeque = new LinkedListDeque<>();
-        linkedListDeque.addLast("0");
-        linkedListDeque.addLast("1");
-        linkedListDeque.addLast("2");
-        linkedListDeque.addLast("3");
-        linkedListDeque.printDeque();
-
-        System.out.println(linkedListDeque.get(2));
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<String> linkedListDeque = new LinkedListDeque<>();
+//        linkedListDeque.addLast("0");
+//        linkedListDeque.addLast("1");
+//        linkedListDeque.addLast("2");
+//        linkedListDeque.addLast("3");
+//        linkedListDeque.printDeque();
+//
+//        System.out.println(linkedListDeque.get(2));
+//    }
 }

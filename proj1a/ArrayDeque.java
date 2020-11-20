@@ -110,24 +110,24 @@ public class ArrayDeque<T> {
 
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<String> arrayDeque = new ArrayDeque<>();
-        for (int i = 0; i < 100; i++) {
-            arrayDeque.addLast(i + "");
-        }
-        System.out.println("size = " + arrayDeque.size());
-//        System.out.println("array size = "+Integer.valueOf(arrayDeque.array.length).toString());
-        arrayDeque.printDeque();
-
-        System.out.println(arrayDeque.removeFirst());
-        System.out.println(arrayDeque.removeFirst());
-        arrayDeque.printDeque();
-        System.out.println(arrayDeque.removeLast());
-        System.out.println(arrayDeque.removeLast());
-
-        arrayDeque.printDeque();
-
-        System.out.println(arrayDeque.get(1));
-
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<String> arrayDeque = new ArrayDeque<>();
+//        for (int i = 0; i < 100; i++) {
+//            arrayDeque.addLast(i + "");
+//        }
+//        System.out.println("size = " + arrayDeque.size());
+////        System.out.println("array size = "+Integer.valueOf(arrayDeque.array.length).toString());
+//        arrayDeque.printDeque();
+//
+//        System.out.println(arrayDeque.removeFirst());
+//        System.out.println(arrayDeque.removeFirst());
+//        arrayDeque.printDeque();
+//        System.out.println(arrayDeque.removeLast());
+//        System.out.println(arrayDeque.removeLast());
+//
+//        arrayDeque.printDeque();
+//
+//        System.out.println(arrayDeque.get(1));
+//
+//    }
 }
